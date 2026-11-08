@@ -1,0 +1,59 @@
+
+<h2>Añadir un animal</h2>
+
+<form (ngSubmit)="guardarAnimal()">
+
+  <label for="nombre">Nombre:</label>
+  <input
+    id="nombre"
+    type="text"
+    name="nombre"
+    [(ngModel)]="nuevoAnimal._nombre"
+    required
+  >
+
+  <label for="tipo">Tipo:</label>
+  <select
+    id="tipo"
+    name="tipo"
+    [(ngModel)]="nuevoAnimal.tipo"
+    required
+  >
+    <option value="">Selecciona un tipo</option>
+    <option value="Mamífero">Mamífero</option>
+    <option value="Ave">Ave</option>
+    <option value="Reptil">Reptil</option>
+    <option value="Pez">Pez</option>
+    <option value="Anfibio">Anfibio</option>
+  </select>
+
+  <label for="habitat">Hábitat:</label>
+  <input
+    id="habitat"
+    type="text"
+    name="habitat"
+    [(ngModel)]="nuevoAnimal.habitat"
+    required
+  >
+
+  <label for="imagen">URL de la imagen:</label>
+  <input
+    id="imagen"
+    type="url"
+    name="imagen"
+    [(ngModel)]="nuevoAnimal.imagen"
+    required
+  >
+
+  <label>
+    <input
+      type="checkbox"
+      name="hervivoro"
+      [(ngModel)]="nuevoAnimal.hervivoro"
+    >
+    ¿Es herbívoro?
+  </label>
+
+  <button type="submit">Crear animal</button>
+
+</form>

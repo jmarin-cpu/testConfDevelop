@@ -1,0 +1,94 @@
+
+<h1>🐾 Mundo Animal</h1>
+
+<section class="formulario">
+  <h2>Añadir un animal</h2>
+
+  <form #formAnimal="ngForm" (ngSubmit)="agregarAnimal()">
+
+    <label for="nombre">Nombre:</label>
+    <input
+      id="nombre"
+      name="nombre"
+      [(ngModel)]="nuevoAnimal._nombre"
+      required
+    >
+
+    <label for="tipo">Tipo:</label>
+    <select
+      id="tipo"
+      name="tipo"
+      [(ngModel)]="nuevoAnimal.tipo"
+      required
+    >
+      <option value="">Selecciona un tipo</option>
+      <option value="Mamífero">Mamífero</option>
+      <option value="Ave">Ave</option>
+      <option value="Reptil">Reptil</option>
+      <option value="Pez">Pez</option>
+      <option value="Anfibio">Anfibio</option>
+    </select>
+
+    <label for="habitat">Hábitat:</label>
+    <input
+      id="habitat"
+      name="habitat"
+      [(ngModel)]="nuevoAnimal.habitat"
+      required
+    >
+
+    <label for="imagen">URL de la imagen:</label>
+    <input
+      id="imagen"
+      type="url"
+      name="imagen"
+      [(ngModel)]="nuevoAnimal.imagen"
+      required
+    >
+
+    <label class="checkbox">
+      <input
+        type="checkbox"
+        name="hervivoro"
+        [(ngModel)]="nuevoAnimal.hervivoro"
+      >
+      ¿Es herbívoro?
+    </label>
+
+    <button type="submit">
+      Añadir animal
+    </button>
+
+  </form>
+</section>
+
+<h2 class="titulo-listado">Listado de animales</h2>
+
+<div class="contenedor-animales">
+
+  @for (animal of animales; track $index) {
+    <div class="tarjeta">
+
+      <img [src]="animal.imagen" [alt]="animal._nombre">
+
+      <div class="contenido">
+        <h2>{{ animal._nombre }}</h2>
+
+        <p><strong>Tipo:</strong> {{ animal.tipo }}</p>
+        <p><strong>Hábitat:</strong> {{ animal.habitat }}</p>
+
+        @if (animal.hervivoro) {
+          <div class="etiqueta-herbivoro">
+            🌿 Herbívoro
+          </div>
+        } @else {
+          <div class="etiqueta-carnivoro">
+            🥩 No herbívoro
+          </div>
+        }
+      </div>
+
+    </div>
+  }
+
+</div>

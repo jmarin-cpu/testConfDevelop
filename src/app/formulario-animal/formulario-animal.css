@@ -1,0 +1,47 @@
+:host {
+  display: block;
+}
+
+h2 {
+  text-align: center;
+  color: #245c3a;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 450px;
+  margin: 20px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px #00000015;
+}
+
+label {
+  font-weight: bold;
+  color: #374151;
+}
+
+input:not([type="checkbox"]),
+select {
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 12px;
+  background: #245c3a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #17452a;
+}
